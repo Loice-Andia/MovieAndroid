@@ -10,6 +10,10 @@ import com.google.gson.annotations.SerializedName;
 @Entity
 public class Movie {
 
+    @PrimaryKey
+    @Expose
+    @SerializedName("id")
+    private Long mId;
     @ColumnInfo
     @Expose
     @SerializedName("adult")
@@ -18,10 +22,6 @@ public class Movie {
     @Expose
     @SerializedName("backdrop_path")
     private String mBackdropPath;
-    @PrimaryKey
-    @Expose
-    @SerializedName("id")
-    private Long mId;
     @ColumnInfo
     @Expose
     @SerializedName("original_language")
