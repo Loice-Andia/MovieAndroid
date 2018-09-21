@@ -1,7 +1,5 @@
 package com.andia.loice.movies.dagger.module;
 
-import android.arch.lifecycle.ViewModel;
-
 import com.andia.loice.movies.dagger.ViewModelKey;
 import com.andia.loice.movies.viewmodel.MovieListViewModel;
 import com.andia.loice.movies.viewmodel.ViewModelFactory;
