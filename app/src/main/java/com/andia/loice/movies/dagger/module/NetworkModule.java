@@ -1,6 +1,7 @@
 package com.andia.loice.movies.dagger.module;
 
 import com.andia.loice.movies.BuildConfig;
+import com.andia.loice.movies.model.db.ApiService;
 import com.andia.loice.movies.util.Constants;
 
 import javax.inject.Singleton;
@@ -58,8 +59,8 @@ public class NetworkModule {
         };
     }
 
-    public Retrofit provideRetrofit(OkHttpClient client,
-                                    HttpLoggingInterceptor interceptor, RxJava2CallAdapterFactory
+    public ApiService providesApiService(OkHttpClient client,
+                                         HttpLoggingInterceptor interceptor, RxJava2CallAdapterFactory
                                             rxCallFactory, GsonConverterFactory gsonFactory) {
         Retrofit retrofit = new Retrofit.Builder()
                 .addCallAdapterFactory(rxCallFactory)
@@ -67,7 +68,7 @@ public class NetworkModule {
                 .client(client)
                 .baseUrl(Constants.BASE_URL)
                 .build();
-        return retrofit;
+        return retrofit.create(ApiService.class);
 
     }
 }

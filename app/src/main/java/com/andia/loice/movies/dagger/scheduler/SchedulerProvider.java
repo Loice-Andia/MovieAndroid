@@ -4,7 +4,7 @@ import android.support.annotation.NonNull;
 
 import io.reactivex.Scheduler;
 
-public class SchedulerProvider{
+public class SchedulerProvider implements SchedulerManager{
 
     private final Scheduler mainThreadScheduler;
     private final Scheduler ioScheduler;
