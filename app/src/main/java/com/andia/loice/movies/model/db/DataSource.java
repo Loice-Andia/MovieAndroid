@@ -27,6 +27,10 @@ public class DataSource {
         movieDao.deleteMovie(movie);
     }
 
+    public void insertMovieList(List<Movie> movieList) {
+        movieDao.insertMovieList(movieList);
+    }
+
     public LiveData<List<Movie>> getMovieLiveData() {
         return movieLiveData;
     }
