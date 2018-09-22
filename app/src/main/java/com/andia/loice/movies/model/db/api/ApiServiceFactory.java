@@ -1,4 +1,4 @@
-package com.andia.loice.movies.model.db.ApiDao;
+package com.andia.loice.movies.model.db.api;
 
 import com.andia.loice.movies.BuildConfig;
 import com.andia.loice.movies.util.Constants;

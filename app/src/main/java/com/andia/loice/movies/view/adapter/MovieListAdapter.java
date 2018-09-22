@@ -61,11 +61,5 @@ public class MovieListAdapter extends RecyclerView.Adapter<MovieListAdapter.View
             view = itemView;
             ButterKnife.bind(this, itemView);
         }
-
-        private String getYearText(Movie movie) {
-            String dateString = movie.getReleaseDate();
-            String[] splits = dateString.split("-");
-            return splits[0];
-        }
     }
 }

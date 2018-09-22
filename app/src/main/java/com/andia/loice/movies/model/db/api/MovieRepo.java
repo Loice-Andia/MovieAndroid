@@ -1,11 +1,7 @@
-package com.andia.loice.movies.model.db.ApiDao;
-
-import android.arch.lifecycle.LiveData;
+package com.andia.loice.movies.model.db.api;
 
 import com.andia.loice.movies.dagger.scheduler.SchedulerProvider;
 import com.andia.loice.movies.model.data.Movie;
-import com.andia.loice.movies.model.data.MovieResponse;
-import com.andia.loice.movies.model.db.AppDatabase;
 import com.andia.loice.movies.model.db.DataSource;
 
 import java.util.List;
@@ -13,10 +9,11 @@ import java.util.concurrent.TimeUnit;
 
 import javax.inject.Inject;
 
+import io.reactivex.Flowable;
 import io.reactivex.Observable;
 import io.reactivex.disposables.CompositeDisposable;
 
-public class NetDataSource implements NetworkDataManager{
+public class MovieRepo {
 
     @Inject
     ApiService apiService;
@@ -29,16 +26,11 @@ public class NetDataSource implements NetworkDataManager{
 
     private final CompositeDisposable disposableManager = new CompositeDisposable();
 
-    public NetDataSource() {
+    public MovieRepo() {
         apiService = new ApiServiceFactory().providesApiService();
     }
 
-    @Override
-    public Observable<MovieResponse> fetchMovies() {
-        return null;
-    }
-
-    public LiveData<List<Movie>> getAll() {
+    public Flowable<List<Movie>> getAll() {
         fetchFromAPI();
         return dataSource.getMovieLiveData();
     }

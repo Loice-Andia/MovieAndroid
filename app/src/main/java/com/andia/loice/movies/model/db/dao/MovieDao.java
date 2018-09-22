@@ -1,6 +1,5 @@
 package com.andia.loice.movies.model.db.dao;
 
-import android.arch.lifecycle.LiveData;
 import android.arch.persistence.room.Dao;
 import android.arch.persistence.room.Delete;
 import android.arch.persistence.room.Insert;
@@ -12,11 +11,13 @@ import com.andia.loice.movies.model.data.Movie;
 
 import java.util.List;
 
+import io.reactivex.Flowable;
+
 @Dao
 public interface MovieDao {
 
     @Query("SELECT * FROM movie")
-    LiveData<List<Movie>> getAllMovies();
+    Flowable<List<Movie>> getAllMovies();
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     void insertMovie(Movie movie);

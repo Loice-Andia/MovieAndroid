@@ -1,9 +1,7 @@
 package com.andia.loice.movies.dagger.module;
 
-import com.andia.loice.movies.model.db.ApiDao.ApiService;
-import com.andia.loice.movies.model.db.ApiDao.ApiServiceFactory;
-import com.andia.loice.movies.model.db.ApiDao.NetDataSource;
-import com.andia.loice.movies.model.db.ApiDao.NetworkDataManager;
+import com.andia.loice.movies.model.db.api.ApiService;
+import com.andia.loice.movies.model.db.api.ApiServiceFactory;
 
 import javax.inject.Singleton;
 
@@ -15,13 +13,7 @@ public class NetworkModule {
 
     @Provides
     @Singleton
-    NetworkDataManager provideNetworkManager() {
-        return new NetDataSource();
-    }
-
-    @Provides
-    @Singleton
-    ApiService provideApiService() {
+    static ApiService provideApiService() {
         return new ApiServiceFactory().providesApiService();
     }
 

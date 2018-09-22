@@ -1,7 +1,5 @@
 package com.andia.loice.movies.model.db;
 
-import android.arch.lifecycle.LiveData;
-
 import com.andia.loice.movies.model.data.Movie;
 import com.andia.loice.movies.model.db.dao.MovieDao;
 
@@ -9,8 +7,10 @@ import java.util.List;
 
 import javax.inject.Inject;
 
+import io.reactivex.Flowable;
+
 public class DataSource {
-    private LiveData<List<Movie>> movieLiveData;
+    private Flowable<List<Movie>> movieLiveData;
     private MovieDao movieDao;
 
     @Inject
@@ -31,7 +31,7 @@ public class DataSource {
         movieDao.insertMovieList(movieList);
     }
 
-    public LiveData<List<Movie>> getMovieLiveData() {
+    public Flowable<List<Movie>> getMovieLiveData() {
         return movieLiveData;
     }
 }
