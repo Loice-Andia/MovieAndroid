@@ -1,5 +1,8 @@
 package com.andia.loice.movies.dagger.module;
 
+import android.arch.lifecycle.ViewModel;
+import android.arch.lifecycle.ViewModelProvider;
+
 import com.andia.loice.movies.dagger.ViewModelKey;
 import com.andia.loice.movies.viewmodel.MovieListViewModel;
 import com.andia.loice.movies.viewmodel.ViewModelFactory;
@@ -13,8 +16,9 @@ public abstract class ViewModelModule {
     @Binds
     @IntoMap
     @ViewModelKey(MovieListViewModel.class)
-    abstract MovieListViewModel bindHomeViewModel(MovieListViewModel homeViewModel);
+    abstract ViewModel bindsMovieListViewModel(MovieListViewModel movieListViewModel);
 
     @Binds
-    abstract ViewModelFactory bindViewModelFactory(ViewModelFactory viewModelFactory);
+    abstract ViewModelProvider.Factory bindsViewModelFactory(ViewModelFactory viewModelFactory);
+
 }

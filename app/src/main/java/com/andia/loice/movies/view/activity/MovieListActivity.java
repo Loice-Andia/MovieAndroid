@@ -2,40 +2,41 @@ package com.andia.loice.movies.view.activity;
 
 import android.app.ProgressDialog;
 import android.arch.lifecycle.Observer;
+import android.arch.lifecycle.ViewModelProvider;
 import android.arch.lifecycle.ViewModelProviders;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
 import com.andia.loice.movies.R;
-import com.andia.loice.movies.dagger.scheduler.SchedulerProvider;
 import com.andia.loice.movies.databinding.ActivityMovieListBinding;
 import com.andia.loice.movies.model.data.Movie;
 import com.andia.loice.movies.view.adapter.MovieListAdapter;
 import com.andia.loice.movies.viewmodel.MovieListViewModel;
-import com.andia.loice.movies.viewmodel.ViewModelFactory;
 
 import java.util.List;
 
 import javax.inject.Inject;
 
-public class MovieListActivity extends AppCompatActivity {
+import dagger.android.AndroidInjection;
+import dagger.android.support.DaggerAppCompatActivity;
+
+public class MovieListActivity extends DaggerAppCompatActivity {
     ActivityMovieListBinding binding;
 
-    @Inject
-    ViewModelFactory viewModelFactory;
+
     private MovieListViewModel movieListViewModel;
+    @Inject
+    ViewModelProvider.Factory viewModelFactory;
+
     private ProgressDialog progressDialog;
     private MovieListAdapter movieListAdapter;
     private RecyclerView recyclerView;
-    private List<Movie> movies;
-    private SchedulerProvider schedulerProvider;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
+        AndroidInjection.inject(this);
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_movie_list);
         progressDialog = new ProgressDialog(this);

@@ -1,6 +1,6 @@
 package com.andia.loice.movies.model.db.api;
 
-import com.andia.loice.movies.dagger.scheduler.SchedulerProvider;
+import com.andia.loice.movies.dagger.scheduler.SchedulerManager;
 import com.andia.loice.movies.model.data.Movie;
 import com.andia.loice.movies.model.db.DataSource;
 
@@ -15,19 +15,19 @@ import io.reactivex.disposables.CompositeDisposable;
 
 public class MovieRepo {
 
-    @Inject
-    ApiService apiService;
+    private ApiService apiService;
 
-    @Inject
-    DataSource dataSource;
+    private DataSource dataSource;
 
-    @Inject
-    SchedulerProvider schedulerProvider;
+    private SchedulerManager schedulerMngrImpl;
 
     private final CompositeDisposable disposableManager = new CompositeDisposable();
 
-    public MovieRepo() {
-        apiService = new ApiServiceFactory().providesApiService();
+    @Inject
+    public MovieRepo(ApiService apiService, DataSource dataSource, SchedulerManager schedulerMngrImpl) {
+        this.apiService = apiService;
+        this.dataSource = dataSource;
+        this.schedulerMngrImpl = schedulerMngrImpl;
     }
 
     public Flowable<List<Movie>> getAll() {
@@ -37,20 +37,20 @@ public class MovieRepo {
 
     public void insertMovie(final Movie movie) {
         disposableManager.add(Observable.timer(1, TimeUnit.NANOSECONDS)
-                .subscribeOn(schedulerProvider.getIoScheduler())
+                .subscribeOn(schedulerMngrImpl.getIoScheduler())
                 .subscribe(time -> dataSource.insertMovie(movie)));
     }
 
     public void insertMovieList(final List<Movie> movieList) {
         disposableManager.add(Observable.timer(1, TimeUnit.NANOSECONDS)
-                .subscribeOn(schedulerProvider.getIoScheduler())
+                .subscribeOn(schedulerMngrImpl.getIoScheduler())
                 .subscribe(time -> dataSource.insertMovieList(movieList)));
     }
 
     private void fetchFromAPI() {
         disposableManager.add(
                 apiService.getAllMovies()
-                        .subscribeOn(schedulerProvider.getIoScheduler())
+                        .subscribeOn(schedulerMngrImpl.getIoScheduler())
                         .subscribe(response -> dataSource.insertMovieList(response.getResults())));
     }
 

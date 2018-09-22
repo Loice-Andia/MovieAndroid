@@ -5,6 +5,8 @@ import com.andia.loice.movies.util.Constants;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
+import javax.inject.Inject;
+
 import io.reactivex.schedulers.Schedulers;
 import okhttp3.HttpUrl;
 import okhttp3.Interceptor;
@@ -19,6 +21,7 @@ public class ApiServiceFactory {
 
     private Gson gson;
 
+    @Inject
     public ApiServiceFactory() {
         gson = new GsonBuilder().create();
     }
@@ -57,7 +60,6 @@ public class ApiServiceFactory {
                 .addInterceptor(provideLoggingInterceptor())
                 .build();
     }
-
     public ApiService providesApiService() {
         Retrofit retrofit = new Retrofit.Builder()
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.createWithScheduler(Schedulers.io()))
