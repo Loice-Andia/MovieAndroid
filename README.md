@@ -12,7 +12,6 @@ A simple app for notifying you the arrival of your visitors.
  - Data Binding
  - Dagger2
  - ViewModels
- - MVVM (Model-View-ViewModel)
  
 ##### Guide
   - Feel free to contribute.
