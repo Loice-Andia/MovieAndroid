@@ -50,6 +50,7 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    androidTestImplementation "android.arch.core:core-testing:$lifecycle_version"
 
     // Butterknife
     implementation "com.jakewharton:butterknife:$butterknife_version"
