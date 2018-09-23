@@ -5,6 +5,7 @@ import android.arch.lifecycle.ViewModel;
 
 import com.andia.loice.movies.dagger.scheduler.SchedulerManager;
 import com.andia.loice.movies.model.data.Movie;
+import com.andia.loice.movies.model.db.api.MovieRepo;
 
 import java.util.List;
 
@@ -13,23 +14,28 @@ import javax.inject.Inject;
 import io.reactivex.disposables.CompositeDisposable;
 
 public class MovieListViewModel extends ViewModel {
-    private MoviesFetchUseCase moviesFetchUseCase;
-    private SchedulerManager schedulerMngr;
 
+    private MovieRepo movieRepo;
+    private SchedulerManager schedulerMngr;
 
     private MutableLiveData<List<Movie>> movies = new MutableLiveData<>();
     private CompositeDisposable disposableManager = new CompositeDisposable();
 
     @Inject
-    MovieListViewModel(MoviesFetchUseCase moviesFetchUseCase, SchedulerManager schedulerMngr) {
-        this.moviesFetchUseCase = moviesFetchUseCase;
+    MovieListViewModel(SchedulerManager schedulerMngr, MovieRepo movieRepo) {
+        this.movieRepo = movieRepo;
         this.schedulerMngr = schedulerMngr;
     }
 
+    /**
+     * Executes call to fetch the movies and set them to the LiveData List
+     *
+     * @return MutableLiveData<List       <       Movie>>
+     */
     public MutableLiveData<List<Movie>> getMovies() {
         if (movies.getValue() == null) {
             disposableManager.add(
-                    moviesFetchUseCase.execute()
+                    movieRepo.getAll()
                             .subscribeOn(schedulerMngr.getIoScheduler())
                             .observeOn(schedulerMngr.getMainThreadScheduler())
                             .subscribe(this.movies::setValue));

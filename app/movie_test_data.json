@@ -1,0 +1,109 @@
+{
+  "page": 1,
+  "total_results": 378964,
+  "total_pages": 18949,
+  "results": [
+    {
+      "vote_count": 1727,
+      "id": 348350,
+      "video": false,
+      "vote_average": 6.7,
+      "title": "Solo: A Star Wars Story",
+      "popularity": 269.214,
+      "poster_path": "\/4oD6VEccFkorEBTEDXtpLAaz0Rl.jpg",
+      "original_language": "en",
+      "original_title": "Solo: A Star Wars Story",
+      "genre_ids": [
+        28,
+        12,
+        878
+      ],
+      "backdrop_path": "\/96B1qMN9RxrAFu6uikwFhQ6N6J9.jpg",
+      "adult": false,
+      "overview": "Through a series of daring escapades deep within a dark and dangerous criminal underworld, Han Solo meets his mighty future copilot Chewbacca and encounters the notorious gambler Lando Calrissian.",
+      "release_date": "2018-05-15"
+    },
+    {
+      "vote_count": 271,
+      "id": 346910,
+      "video": false,
+      "vote_average": 5.6,
+      "title": "The Predator",
+      "popularity": 219.771,
+      "poster_path": "\/wMq9kQXTeQCHUZOG4fAe5cAxyUA.jpg",
+      "original_language": "en",
+      "original_title": "The Predator",
+      "genre_ids": [
+        27,
+        878,
+        28,
+        35
+      ],
+      "backdrop_path": "\/f4E0ocYeToEuXvczZv6QArrMDJ.jpg",
+      "adult": false,
+      "overview": "From the outer reaches of space to the small-town streets of suburbia, the hunt comes home. Now, the universe’s most lethal hunters are stronger, smarter and deadlier than ever before, having genetically upgraded themselves with DNA from other species. When a young boy accidentally triggers their return to Earth, only a ragtag crew of ex-soldiers and a disgruntled science teacher can prevent the end of the human race.",
+      "release_date": "2018-09-13"
+    },
+    {
+      "vote_count": 536,
+      "id": 439079,
+      "video": false,
+      "vote_average": 5.9,
+      "title": "The Nun",
+      "popularity": 195.882,
+      "poster_path": "\/sFC1ElvoKGdHJIWRpNB3xWJ9lJA.jpg",
+      "original_language": "en",
+      "original_title": "The Nun",
+      "genre_ids": [
+        27,
+        9648,
+        53
+      ],
+      "backdrop_path": "\/fgsHxz21B27hOOqQBiw9L6yWcM7.jpg",
+      "adult": false,
+      "overview": "When a young nun at a cloistered abbey in Romania takes her own life, a priest with a haunted past and a novitiate on the threshold of her final vows are sent by the Vatican to investigate. Together they uncover the order’s unholy secret. Risking not only their lives but their faith and their very souls, they confront a malevolent force in the form of the same demonic nun that first terrorized audiences in “The Conjuring 2,” as the abbey becomes a horrific battleground between the living and the damned.",
+      "release_date": "2018-09-05"
+    },
+    {
+      "vote_count": 732,
+      "id": 442249,
+      "video": false,
+      "vote_average": 6,
+      "title": "The First Purge",
+      "popularity": 179.933,
+      "poster_path": "\/2slvblTroiT1lY9bYLK7Amigo1k.jpg",
+      "original_language": "en",
+      "original_title": "The First Purge",
+      "genre_ids": [
+        28,
+        878,
+        53,
+        27
+      ],
+      "backdrop_path": "\/r4clWIxKeWoqrHspQP0XunuUmB7.jpg",
+      "adult": false,
+      "overview": "To push the crime rate below one percent for the rest of the year, the New Founding Fathers of America test a sociological theory that vents aggression for one night in one isolated community. But when the violence of oppressors meets the rage of the others, the contagion will explode from the trial-city borders and spread across the nation.",
+      "release_date": "2018-07-04"
+    },
+    {
+      "vote_count": 8181,
+      "id": 299536,
+      "video": false,
+      "vote_average": 8.3,
+      "title": "Avengers: Infinity War",
+      "popularity": 178.697,
+      "poster_path": "\/7WsyChQLEftFiDOVTGkv3hFpyyt.jpg",
+      "original_language": "en",
+      "original_title": "Avengers: Infinity War",
+      "genre_ids": [
+        12,
+        878,
+        28
+      ],
+      "backdrop_path": "\/lmZFxXgJE3vgrciwuDib0N8CfQo.jpg",
+      "adult": false,
+      "overview": "As the Avengers and their allies have continued to protect the world from threats too large for any one hero to handle, a new danger has emerged from the cosmic shadows: Thanos. A despot of intergalactic infamy, his goal is to collect all six Infinity Stones, artifacts of unimaginable power, and use them to inflict his twisted will on all of reality. Everything the Avengers have fought for has led up to this moment - the fate of Earth and existence itself has never been more uncertain.",
+      "release_date": "2018-04-25"
+    }
+  ]
+}

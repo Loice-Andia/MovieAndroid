@@ -17,6 +17,10 @@ import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 
+/**
+ * Factory class that provides Retrofit, LoggingInteceptor , OkHttpClient
+ * and ApiService instances to be able to fetch data
+ */
 public class ApiServiceFactory {
 
     private Gson gson;
@@ -26,6 +30,11 @@ public class ApiServiceFactory {
         gson = new GsonBuilder().create();
     }
 
+    /**
+     * Methos to Log the body of each request
+     *
+     * @return
+     */
     public HttpLoggingInterceptor provideLoggingInterceptor() {
         HttpLoggingInterceptor interceptor = new
                 HttpLoggingInterceptor();
@@ -34,6 +43,10 @@ public class ApiServiceFactory {
         return interceptor;
     }
 
+    /**
+     * Intercept request to add query params such as the api key
+     * @return
+     */
     private Interceptor getQueryParamsInterceptor() {
         return chain -> {
             Request original = chain.request();
@@ -60,6 +73,11 @@ public class ApiServiceFactory {
                 .addInterceptor(provideLoggingInterceptor())
                 .build();
     }
+
+    /**
+     * Method to provide Retrofit instance
+     * @return
+     */
     public ApiService providesApiService() {
         Retrofit retrofit = new Retrofit.Builder()
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.createWithScheduler(Schedulers.io()))

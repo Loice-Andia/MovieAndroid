@@ -1,7 +1,13 @@
 package com.andia.loice.movies.TestUtils;
 
 import com.andia.loice.movies.model.data.Movie;
+import com.andia.loice.movies.model.data.MovieResponse;
+import com.google.gson.Gson;
 
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -31,5 +37,22 @@ public class DataGenerator {
             movies.add(generateMovie());
         }
         return movies;
+    }
+
+    public MovieResponse getMovieTestData() {
+        try {
+            InputStream is = new FileInputStream("movie_test_data.json");
+            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(is));
+            StringBuilder builder = new StringBuilder();
+            String textLine = bufferedReader.readLine();
+            while (textLine != null) {
+                builder.append(textLine);
+                textLine = bufferedReader.readLine();
+            }
+            return new Gson().fromJson(builder.toString(), MovieResponse.class);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 }

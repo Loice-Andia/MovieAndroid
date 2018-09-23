@@ -5,14 +5,16 @@ import com.andia.loice.movies.model.data.Movie;
 import com.andia.loice.movies.model.db.DataSource;
 
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 
 import javax.inject.Inject;
 
 import io.reactivex.Flowable;
-import io.reactivex.Observable;
 import io.reactivex.disposables.CompositeDisposable;
 
+/**
+ * Repository class for the Movie object.
+ * Facilitates getting the response from the API and storing them in the DB
+ */
 public class MovieRepo {
 
     private ApiService apiService;
@@ -33,18 +35,6 @@ public class MovieRepo {
     public Flowable<List<Movie>> getAll() {
         fetchFromAPI();
         return dataSource.getMovieLiveData();
-    }
-
-    public void insertMovie(final Movie movie) {
-        disposableManager.add(Observable.timer(1, TimeUnit.NANOSECONDS)
-                .subscribeOn(schedulerMngrImpl.getIoScheduler())
-                .subscribe(time -> dataSource.insertMovie(movie)));
-    }
-
-    public void insertMovieList(final List<Movie> movieList) {
-        disposableManager.add(Observable.timer(1, TimeUnit.NANOSECONDS)
-                .subscribeOn(schedulerMngrImpl.getIoScheduler())
-                .subscribe(time -> dataSource.insertMovieList(movieList)));
     }
 
     private void fetchFromAPI() {

@@ -17,6 +17,9 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
+/**
+ * Adapter class for setting data to the RecyclerView
+ */
 public class MovieListAdapter extends RecyclerView.Adapter<MovieListAdapter.ViewHolder> {
 
     private List<Movie> movies;
