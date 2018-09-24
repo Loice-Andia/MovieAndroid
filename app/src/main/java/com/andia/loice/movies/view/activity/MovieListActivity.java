@@ -52,8 +52,12 @@ public class MovieListActivity extends DaggerAppCompatActivity {
         recyclerView = binding.movieListRcView;
 
         movieListViewModel = ViewModelProviders.of(this, viewModelFactory).get(MovieListViewModel.class);
-
-        fetchMovies();
+        if (!isNetworkAvailable(this)) {
+            Snackbar.make(binding.movieListRcView, "No network Connection", Snackbar.LENGTH_LONG)
+                    .show();
+        } else {
+            fetchMovies();
+        }
 
     }
 
@@ -62,10 +66,7 @@ public class MovieListActivity extends DaggerAppCompatActivity {
      */
     private void fetchMovies() {
         progressDialog.show();
-        if (!isNetworkAvailable(this)) {
-            Snackbar.make(binding.movieListRcView, "No network Connection", Snackbar.LENGTH_LONG)
-                    .show();
-        }
+
         final Observer<List<Movie>> moviesObserver = results -> {
             displayMovies(results);
             progressDialog.hide();
