@@ -14,6 +14,7 @@ A simple app for listing movies.
  - Data Binding
  - Dagger2
  - ViewModels
+ - RxJava2
  
 ##### Guide
   - Feel free to contribute.
