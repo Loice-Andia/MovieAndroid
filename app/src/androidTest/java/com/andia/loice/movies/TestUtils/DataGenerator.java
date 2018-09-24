@@ -12,11 +12,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DataGenerator {
-    /**
-     * Generates a dummy visitor
-     *
-     * @return
-     */
     public static Movie generateMovie() {
         Movie movie = new Movie();
         movie.setId((long) 348350);
@@ -26,11 +21,6 @@ public class DataGenerator {
         return movie;
     }
 
-    /**
-     * Generates a list of Visitors with {count} items
-     *
-     * @param count - number of dummy visitors to generate
-     */
     public static List<Movie> generateMovieList(int count) {
         List<Movie> movies = new ArrayList<>();
         for (int i = 0; i < count; i++) {

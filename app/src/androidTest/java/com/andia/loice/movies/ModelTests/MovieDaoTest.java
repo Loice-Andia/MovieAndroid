@@ -50,7 +50,7 @@ public class MovieDaoTest {
     }
 
     @Test
-    public void onInsertingVisitor_checkIf_RowCountIsCorrect() throws InterruptedException {
+    public void onInsertingMovie_checkIf_RowCountIsCorrect() throws InterruptedException {
 
         Movie movie = DataGenerator.generateMovie();
         movieDao.insertMovie(movie);
