@@ -167,4 +167,7 @@ public class Movie {
         mVoteCount = voteCount;
     }
 
+    public Movie(String mOriginalTitle) {
+        this.mOriginalTitle = mOriginalTitle;
+    }
 }
